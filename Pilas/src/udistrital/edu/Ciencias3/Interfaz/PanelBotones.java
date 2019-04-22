@@ -25,6 +25,7 @@ public class PanelBotones extends JPanel implements ActionListener {
 	 */
 	private static String BUSCAR = "buscar";
 	
+	private static String SACAR = "sacar";	
 	/**
 	 * Boton agregar
 	 */
@@ -33,6 +34,10 @@ public class PanelBotones extends JPanel implements ActionListener {
 	 * boton buscar
 	 */
 	private JButton btnBuscar;
+	/**
+	 * Boton sacar
+	 */
+	private JButton btnSacar;
 	
 	/**
 	 * Referencia a la ventana principal
@@ -42,7 +47,7 @@ public class PanelBotones extends JPanel implements ActionListener {
 	public PanelBotones(Interfaz i) {
 
 		setBorder(new TitledBorder("Opciones"));
-		setLayout(new GridLayout(1, 2));
+		setLayout(new GridLayout(1, 3));
 		
 		this.i = i;
 		
@@ -54,8 +59,13 @@ public class PanelBotones extends JPanel implements ActionListener {
 		btnBuscar.setActionCommand(BUSCAR);
 		btnBuscar.addActionListener(this);
 		
+		btnSacar = new JButton("Sacar");
+		btnSacar.setActionCommand(SACAR);
+		btnSacar.addActionListener(this);
+		
 		add(btnAgregar);
 		add(btnBuscar);
+		add(btnSacar);
 	}
 
 	@Override
@@ -73,6 +83,15 @@ public class PanelBotones extends JPanel implements ActionListener {
 		
 		case "buscar":
 			i.buscar();
+		break;
+		
+		case "sacar":
+			try {
+				i.sacar();
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,"La pila esta vacia");
+
+			}
 		break;
 		}
 		

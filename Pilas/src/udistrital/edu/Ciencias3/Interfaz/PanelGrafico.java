@@ -28,12 +28,12 @@ public class PanelGrafico extends JPanel {
 	
 	  public void graficar(){
 	        this.removeAll();
-	        Rectangle tamaño = this.internalFrame.getBounds();
+	        Rectangle tamano = this.internalFrame.getBounds();
 	        this.internalFrame = null;
 	        this.internalFrame = new JInternalFrame("Datos",true);
 	        this.add(this.internalFrame);
 	        this.internalFrame.setVisible(true);
-	        this.internalFrame.setBounds(tamaño);
+	        this.internalFrame.setBounds(tamano);
 	        this.internalFrame.setEnabled(false);
 	        this.internalFrame.setResizable(false);
 	        this.internalFrame.add(new Grafico(p),BorderLayout.CENTER);

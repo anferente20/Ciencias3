@@ -64,7 +64,7 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Arboles");
         setBackground(new java.awt.Color(255, 255, 255));
-        setBounds(new java.awt.Rectangle(300, 100, 480, 460));
+        setBounds(new java.awt.Rectangle(700, 150, 480, 460));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("Inicio"); // NOI18N
         setUndecorated(true);
@@ -83,6 +83,16 @@ public class Inicio extends javax.swing.JFrame {
         JLEjemplo.setText("Ejemplo: 8,12,6,4,3");
 
         JTFNuevo.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        JTFNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFNuevoActionPerformed(evt);
+            }
+        });
+        JTFNuevo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTFNuevoKeyTyped(evt);
+            }
+        });
 
         JBCrearNuevo.setText("Crear");
         JBCrearNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -136,8 +146,18 @@ public class Inicio extends javax.swing.JFrame {
         JLTextoPre1.setText("Ingrese el recorrido en Inorden:");
 
         JTFRPreorden.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        JTFRPreorden.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTFRPreordenKeyTyped(evt);
+            }
+        });
 
         JTFRInortenPRE.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        JTFRInortenPRE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTFRInortenPREKeyTyped(evt);
+            }
+        });
 
         JBCrearInPre.setText("Crear");
         JBCrearInPre.addActionListener(new java.awt.event.ActionListener() {
@@ -188,11 +208,21 @@ public class Inicio extends javax.swing.JFrame {
         JLTextoPos.setText("Ingrese el recorrido en Posorden:");
 
         JTFRPosorden.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        JTFRPosorden.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTFRPosordenKeyTyped(evt);
+            }
+        });
 
         JLTextoPos1.setFont(new java.awt.Font("Lucida Fax", 0, 14)); // NOI18N
         JLTextoPos1.setText("Ingrese el recorrido en Inorden:");
 
         JTFRInortenPos.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        JTFRInortenPos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTFRInortenPosKeyTyped(evt);
+            }
+        });
 
         JBCrearInPos.setText("Crear");
         JBCrearInPos.addActionListener(new java.awt.event.ActionListener() {
@@ -359,6 +389,61 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBCrearInPosActionPerformed
 
+    private void JTFNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFNuevoActionPerformed
+
+    private void JTFNuevoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFNuevoKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"solo numeros","solo numeros",1);
+        }
+    }//GEN-LAST:event_JTFNuevoKeyTyped
+
+    private void JTFRPreordenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFRPreordenKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"solo numeros","solo numeros",1);
+        }
+    }//GEN-LAST:event_JTFRPreordenKeyTyped
+
+    private void JTFRInortenPREKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFRInortenPREKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"solo numeros","solo numeros",1);
+        }
+    }//GEN-LAST:event_JTFRInortenPREKeyTyped
+
+    private void JTFRPosordenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFRPosordenKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"solo numeros","solo numeros",1);
+        }
+    }//GEN-LAST:event_JTFRPosordenKeyTyped
+
+    private void JTFRInortenPosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFRInortenPosKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"solo numeros","solo numeros",1);
+        }
+    }//GEN-LAST:event_JTFRInortenPosKeyTyped
+
+    
     /**
      * @param args the command line arguments
      */

@@ -57,7 +57,7 @@ public class Respuesta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Arbol");
-        setBounds(new java.awt.Rectangle(350, 25, 700, 600));
+        setBounds(new java.awt.Rectangle(750, 25, 700, 600));
         setResizable(false);
 
         jInternalFrame1.setVisible(true);
@@ -70,7 +70,7 @@ public class Respuesta extends javax.swing.JFrame {
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
+            .addGap(0, 456, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);

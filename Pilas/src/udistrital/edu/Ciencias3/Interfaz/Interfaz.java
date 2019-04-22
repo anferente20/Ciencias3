@@ -83,7 +83,7 @@ public class Interfaz extends JFrame{
 	 * @throws Exception 
 	 */
 	public void agregar() throws Exception {
-		p.push(Integer.valueOf(JOptionPane.showInputDialog(null,"Agregue un número: " )));
+		p.push(Integer.valueOf(JOptionPane.showInputDialog(null,"Agregue un numero: " )));
 		pg.graficar();
 		pd.cargar(p);
 	}
@@ -92,8 +92,18 @@ public class Interfaz extends JFrame{
 	 * Acción que permite buscar cuantas veces está repetido un elemento 
 	 */
 	public void buscar() {
-		int numero =Integer.valueOf(JOptionPane.showInputDialog(null,"¿qué número desea buscar?: " )); 
-		JOptionPane.showMessageDialog(null,"El número "+ numero+ " está repetido "+
+		int numero =Integer.valueOf(JOptionPane.showInputDialog(null,"�que numero desea buscar?: " )); 
+		JOptionPane.showMessageDialog(null,"El nu	mero "+ numero+ " esta repetido "+
 				p.buscar(numero)+" veces");
+	}
+	
+	/**
+	 * Acción que permite agregar un nuevo elemento a la pila
+	 * @throws Exception 
+	 */
+	public void sacar() throws Exception {
+		JOptionPane.showMessageDialog(null,"Se sac� el elemento "+p.pop().getValor()+" de la pila.");
+		pg.graficar();
+		pd.cargar(p);
 	}
 }
