@@ -1,0 +1,9 @@
+public class Funciones {
+    public int factorial (int numero) {
+       int mult = 1;
+       for (int i = 1;i<= numero;i++) {
+			mult *= i;
+       }
+       return mult;
+    }
+}

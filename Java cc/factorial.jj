@@ -1,0 +1,109 @@
+PARSER_BEGIN(factorial)
+class factorial{
+	public static void main(String [] args) throws ParseException{
+		try {
+		
+			factorial analizador = new factorial(System.in);
+			analizador.Clase();
+		}catch(ParseException e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}
+PARSER_END(factorial)
+
+
+TOKEN:
+{
+	  <INT:"int">{System.out.println("ENTERO -> "+image);}
+	| <NUMBER : (["0"-"9"])+ > {System.out.print("NUMERO "+image+"\r\n");}
+	| <IDENTIFIER : ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","_"])*> {System.out.print("IDENTIFICADOR -> "+image+"\r\n");}
+}
+TOKEN : 
+{ 
+	  <PI : "*="> {System.out.println("MULTIPLICACION -> "+image+"\r\n");}
+	| <IGUAL : "= "> {System.out.println("ASIGNACION -> "+image+"\r\n");}
+	| <INCR: "++" >{System.out.println("INCREMENTO -> "+image+"\r\n");}
+}
+TOKEN:
+{
+	 <CLASE: "class " > {System.out.println("CLASE -> "+image);}
+	| <FOR:"for " >{System.out.println("FOR -> "+image);}
+	| <PUBLIC: "public ">{System.out.println("PUBLIC -> "+image);}
+	| <RETURN: "return ">{System.out.println("RETURN -> "+image);} 
+}
+TOKEN:
+{
+      <LP: "(" >{System.out.println("IPAREN -> "+image);}
+	| <RP: ")" >{System.out.println("DPAREN -> "+image);}
+	| <LB: "{" >{System.out.println("ILLAVE -> "+image);}
+	| <RB: "}" >{System.out.println("DLLAVE -> "+image);}
+	| <SEMICOLON: ";" >{System.out.println("PUNTO Y COMA -> "+image);}
+	}
+TOKEN:
+{
+	 <LE: "<=" >{System.out.println("MENOR O IGUAL -> "+image);}
+}
+
+SKIP : 
+{ 
+	" "|"\n" | "\r" | "\r\n" | "\t"
+}
+
+void Clase() :
+{}
+{
+	<PUBLIC><CLASE><IDENTIFIER><LB>Metodo()<RB><EOF>
+	
+}
+
+void Metodo():
+{}
+{
+	<PUBLIC><INT><IDENTIFIER><LP><INT><IDENTIFIER><RP><LB>Bloque()<RB>
+}
+
+void Bloque():
+{}
+{
+	(
+		Declaracion()|SentenciaFor()|Retorno()|Sentencia()|<EOF>
+	)*
+}
+
+void Declaracion():
+{}
+{
+	<INT><IDENTIFIER><IGUAL><NUMBER><SEMICOLON>
+}
+
+void SentenciaFor():
+{}
+{
+	<FOR><LP>Declaracion()Comparacion()Cambio()<RP><LB>Sentencia()<RB>
+}
+
+void Comparacion():
+{}
+{
+	<IDENTIFIER><LE><IDENTIFIER><SEMICOLON>
+}
+
+void Cambio():
+{}
+{
+	<IDENTIFIER><INCR>
+}
+
+void Sentencia():
+{}
+{
+	<IDENTIFIER><PI><IDENTIFIER><SEMICOLON>
+}
+
+void Retorno():
+{}
+{
+	<RETURN><IDENTIFIER><SEMICOLON>
+}
